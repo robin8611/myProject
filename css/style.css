@@ -31,18 +31,6 @@ main {
 	box-sizing: border-box;
 	padding: 20px;
 }
-/* 이제부터 header와 main 콘텐츠를 좌우로 배치하겠습니다. 언뜻 생각하면 header와
-   main 모두 float를 이용해서 좌우 배치할것 같지만, 실제로는 오른쪽의 메인 영역
-	 에서 콘텐츠를 스크롤해도 헤더 영역은 항상 왼쪽 상단에 고정되어야 합니다. 따라
-	 서 header 부분만 position: fixed로 브라우저 왼쪽에 고정시킵니다. 다음에 만들
-	 메인 영역은 너빗값을 설정하기가 애매합니다. header 영역의 너비가 400px 고정값
-	 인 상태에서 main 영역의 너빗값은 사용자가 브라우저를 리사이즈하더라도 왼쪽
-	 400px을 제외한 나머지 크기로 자동 설정되어야 하기 때문입니다. 이때 main 영역
-	 에 너빗값을 적용하지 않은 상태에서 왼쪽에 400px만큼 margin-left로 여백을 설정
-	 하면 브라우저는 전체 너비에서 왼쪽 margin-left값을 제외한 나머지 너빗값으로
-	 자동 계산해 줍니다. 왼쪽의 header 영역은 너비 400px의 크기로 고정되어 있고, 오
-	 른쪽의 main 영역은 브라우저를 리사이즈하면 전체 너비에서 왼쪽 여백 400px을 뺀
-	 나머지로 너빗값이 자동 계산됩니다. 4단계 헤더 영역에 로고 추가하기 */
 header h1 {
 	font: bold 50px/1 'orbitron';
 	color: #fff;
@@ -71,10 +59,6 @@ header h1::after {
 	background: #fff;
 	margin-top: 20px;
 }
-/* ::before를 이용해 content에 UI/UX DEVELOPMENT라는 설명 글을 입력합니다. 권장
-   사항은 아니지만 가상 선택자를 이용하면 HTML이 아닌 CSS로도 콘텐츠를 작성할 수
-	 있습니다. 이 콘텐츠의 폰트를 설정하고, absolute로 h1 영역을 기준으로 아래쪽에
-	 배치해 줍니다. 5단계 헤더 영역 하단에 SNS 버튼 제작하기 */
 header ul {
 	position: absolute;
 	left: 40px;
@@ -92,11 +76,8 @@ header ul li a span {
 	display: inline-block;
 	font-weight: bold;
 	opacity: 0.7;
-	transform: scale(0.7) translateX(-10px); /* 70% 축소하고 왼족으로 -10px만큼 이동 */
+	transform: scale(0.7) translateX(-10px);
 }
-/* 웹 폰트 아이콘인 i 요소에 비해 span 요소의 글자가 상대적으로 너무 커보이므로 크기를 약간 줄이겠습니다.
-   font-size 속성으로 조절할 수도 있지만 그러면 왼쪽 아이콘과 세로 정렬이 틀어지므로 해당 위치에서 크기만
-	 축소하기 위해 transform: scale을 사용하고, translateX를 이용해 살짝 왼쪽으로 밀어 줍니다. */
 main section {
 	width: 100%;
 }
@@ -146,8 +127,6 @@ main section article div p {
 		width: 25%;
 	}
 }
-/* 브라우저 폭이 1600px 미만일 때에는 왼쪽 header 영역의 너빗값을 약간 축소하고, 오른쪽 영역의 article 요소를
-   가로로 4개씩 배치합니다. article은 main 영역에서 가로로 4개를배치하기 위해 너비를 25%로 설정합니다. */
 @media screen and (max-width:1199px) {
 	header {
 		width: 100%;
@@ -182,8 +161,6 @@ main section article div p {
 		width: 25%;
 	}
 }
-/* 1200px 미만부터 스타일을 변경할 예정이므로 미디어 쿼리의 max-width값을 1199px로 설정합니다.
-   이제는 header 밑으로 main 콘텐츠가 쌓이도록 position값을 relative로 변경합니다. */
 @media screen and (max-width:899px) {
 	header ul {
 		left: 80%;
@@ -192,9 +169,6 @@ main section article div p {
 		width: 33.333%;
 	}
 }
-/* 이번에는 max-width를 899px로 입력하고, header의 ul 위치를 조정하고, article은 너빗값을
-   33.333%로 입력해 가로로 3개씩 배치되도록 만듭니다. 브라우저 폭이 680px 미만일 때에는
-	 article을 가로로 2개씩 배치되게 변경합니다. */
 @media screen and (max-width:679px) {
 	header ul {
 		left: 70%;
@@ -203,7 +177,6 @@ main section article div p {
 		width: 50%;
 	}
 }
-/* 브라우저 폭이 540px 미만일 때에는 article을 가로로 1개씩 배치되도록 변경합니다. */
 @media screen and (max-width:539px) {
 	header ul {
 		display: none;
@@ -257,4 +230,3 @@ main ul li.on a {
 	box-shadow: 0px 5px 20px rgba(0, 255, 255, 0.527);
 	color: #fff;
 }
-/* 자식인 a 요소의 모양을 잡고, 만약 부모인 li 요소에 클래스 on이 추가되면 활성화되는 모양도 입력합니다. */
